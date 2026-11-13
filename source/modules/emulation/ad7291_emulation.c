@@ -114,14 +114,17 @@ ad7291_reg_t ad7291_regFile[AD7291_REGFILE_LEN];
  */
 const uint8_t ad7291_chLUT[AD7291_CH_CNT] =
 {
-    DL_ADC12_INPUT_CHAN_1,
-    DL_ADC12_INPUT_CHAN_2,
-    DL_ADC12_INPUT_CHAN_3,
-    DL_ADC12_INPUT_CHAN_4,
-    DL_ADC12_INPUT_CHAN_5,
-    DL_ADC12_INPUT_CHAN_6,
-    DL_ADC12_INPUT_CHAN_8,
-    DL_ADC12_INPUT_CHAN_9
+    /* BBW2: reordered so emulated channel N == schematic net ADC_CHN.
+     * A5 is not routed on our board; A7 (PA18 = BSL invoke, header J28.32)
+     * fills the leftover slot so all eight header AIN pins are live. */
+    DL_ADC12_INPUT_CHAN_1,   /* ch0 = ADC_CH0 = J28.39 */
+    DL_ADC12_INPUT_CHAN_2,   /* ch1 = ADC_CH1 = J28.40 */
+    DL_ADC12_INPUT_CHAN_3,   /* ch2 = ADC_CH2 = J28.37 */
+    DL_ADC12_INPUT_CHAN_4,   /* ch3 = ADC_CH3 = J28.38 */
+    DL_ADC12_INPUT_CHAN_6,   /* ch4 = ADC_CH4 = J28.33 */
+    DL_ADC12_INPUT_CHAN_8,   /* ch5 = ADC_CH5 = J28.36 */
+    DL_ADC12_INPUT_CHAN_9,   /* ch6 = ADC_CH6 = J28.35 */
+    DL_ADC12_INPUT_CHAN_7    /* ch7 = ADC_CH7 = J28.32 */
 };
 
 /**

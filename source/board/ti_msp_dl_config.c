@@ -101,9 +101,9 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
     
 	DL_GPIO_setDigitalInternalResistor(GPIO_PER_SPI_IOMUX_POCI, DL_GPIO_RESISTOR_NONE);
 
-    DL_GPIO_initDigitalInput(MCU_GPIO_MCU_GPIO0_1_IOMUX);
-
-
+    /* BBW2: PA18 (A7) is remapped to ADC channel 4 (see ad7291_chLUT);
+     * its digital input init is removed so the pin stays in the analog-
+     * capable reset state. */
 }
 
 

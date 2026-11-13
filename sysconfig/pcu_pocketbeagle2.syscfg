@@ -28,12 +28,8 @@ const ProjectConfig = scripting.addModule("/ti/project_config/ProjectConfig");
 Board.debugOn            = false;
 Board.peripheral.$assign = "DEBUGSS";
 
-GPIO1.port                          = "PORTA";
-GPIO1.$name                         = "MCU_GPIO";
-GPIO1.associatedPins[0].$name       = "MCU_GPIO0_1";
-GPIO1.associatedPins[0].direction   = "INPUT";
-GPIO1.associatedPins[0].assignedPin = "18";
-GPIO1.associatedPins[0].pin.$assign = "PA18";
+/* BBW2: MCU_GPIO group removed — PA18 (A7) is used as ADC input
+ * (ad7291 emulated channel 4) instead of a digital input. */
 
 I2C1.basicEnableTarget                 = true;
 I2C1.advEnableAfterInit                = false;
